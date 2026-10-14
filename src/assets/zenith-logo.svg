@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120" fill="none">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+  <path d="M 50 5 L 90 20 L 90 65 C 90 92 50 115 50 115 C 50 115 10 92 10 65 L 10 20 Z" fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="4" stroke-linejoin="round" />
+  <path d="M 50 12 L 84 25 L 84 64 C 84 86 50 106 50 106 C 50 106 16 86 16 64 L 16 25 Z" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.4" />
+  <polygon points="50,16 53,24 61,24 55,29 57,37 50,32 43,37 45,29 39,24 47,24" fill="url(#goldGrad)" />
+  <text x="50" y="52" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="12" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">ZENITH</text>
+  <text x="50" y="63" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="800" font-size="7" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="2">FOOTBALL CLUB</text>
+  <circle cx="50" cy="80" r="14" fill="#022c22" stroke="url(#goldGrad)" stroke-width="2" />
+  <path d="M 43 73 L 57 73 L 44 87 L 57 87" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="46" cy="79" r="1" fill="url(#goldGrad)" />
+  <circle cx="54" cy="81" r="1" fill="url(#goldGrad)" />
+</svg>

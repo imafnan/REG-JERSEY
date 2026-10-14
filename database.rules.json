@@ -1,0 +1,44 @@
+{
+  "rules": {
+    "settings": {
+      ".read": true,
+      ".write": "auth != null && (root.child('admins').child(auth.uid).exists() || !root.child('admins').exists())"
+    },
+    "jerseyNumbers": {
+      ".read": true,
+      "$number": {
+        ".read": true,
+        ".write": "auth != null || (newData.child('count').isNumber() && (!data.exists() || data.child('allowMultiple').val() === true || (data.child('count').val() == 0 && newData.child('count').val() == 1)))",
+        ".indexOn": ["count", "reserved", "allowMultiple"]
+      }
+    },
+    "registrations": {
+      ".read": "auth != null && (root.child('admins').child(auth.uid).exists() || !root.child('admins').exists())",
+      "$registrationId": {
+        ".read": "auth != null",
+        ".write": "(auth != null) || (!data.exists() && newData.exists() && root.child('settings/registrationOpen').val() !== false && newData.hasChildren(['fullName', 'jerseyName', 'jerseyNumber', 'mobileNumber', 'jerseySize']))",
+        ".validate": "newData.hasChildren(['fullName', 'jerseyName', 'jerseyNumber', 'mobileNumber', 'jerseySize'])",
+        "fullName": {
+          ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 60"
+        },
+        "jerseyName": {
+          ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 14"
+        },
+        "jerseyNumber": {
+          ".validate": "newData.isNumber()"
+        },
+        "mobileNumber": {
+          ".validate": "newData.isString() && newData.val().length >= 11 && newData.val().length <= 15"
+        },
+        "jerseySize": {
+          ".validate": "newData.isString()"
+        }
+      },
+      ".indexOn": ["jerseyNumber", "createdAt", "jerseySize"]
+    },
+    "admins": {
+      ".read": "auth != null",
+      ".write": "auth != null && (!data.exists() || root.child('admins').child(auth.uid).exists() || !root.child('admins').exists())"
+    }
+  }
+}
